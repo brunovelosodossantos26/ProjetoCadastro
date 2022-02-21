@@ -1,129 +1,66 @@
-<?php include 'header.php' ?>
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<body class="adminbody">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-<div id="main">
+    <title>Login</title>
+    <style type="text/css">
+      #cor{
+        color: #fff;
+        font-size: 20px;
+      }
 
-    <!-- top bar navigation -->
-    <?php include 'topbar.php'?>
-    <!-- End Navigation -->
-
-    <?php include 'menu.php'?>
-
-    <div class="content-page">
-
-        <!-- Start content -->
-        <div class="content">
-
-            <div class="container-fluid">
-
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="breadcrumb-holder">
-                            <h1 class="main-title float-left">Painel</h1>
-                            <ol class="breadcrumb float-right">
-                                <li class="breadcrumb-item">Home</li>
-                                <li class="breadcrumb-item active">Dashboard</li>
-                            </ol>
-                            <div class="clearfix"></div>
-                        </div>
-
-                      
-
-                    </div>
-                </div>
-                <!-- end row -->
+      #imagem{
+        height: 180px;
+        width: 180px;
+      }
+    </style>
 
 
-                <div class="row">
-                    <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                        <div class="card-box noradius noborder bg-danger">
-                            <i class="far fa-user float-right text-white"></i>
-                            <h6 class="text-white text-uppercase m-b-20">Usuários</h6>
-                            <h1 class="m-b-20 text-white counter">487</h1>
-                            <span class="text-white">12 Today</span>
-                        </div>
-                    </div>
+  </head>
 
-                    <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                        <div class="card-box noradius noborder bg-purple">
-                            <i class="fas fa-download float-right text-white"></i>
-                            <h6 class="text-white text-uppercase m-b-20">Downloads</h6>
-                            <h1 class="m-b-20 text-white counter">290</h1>
-                            <span class="text-white">12 Today</span>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                        <div class="card-box noradius noborder bg-warning">
-                            <i class="fas fa-shopping-cart float-right text-white"></i>
-                            <h6 class="text-white text-uppercase m-b-20">Orders</h6>
-                            <h1 class="m-b-20 text-white counter">320</h1>
-                            <span class="text-white">25 Today</span>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                        <div class="card-box noradius noborder bg-info">
-                            <i class="far fa-envelope float-right text-white"></i>
-                            <h6 class="text-white text-uppercase m-b-20">Messages</h6>
-                            <h1 class="m-b-20 text-white counter">58</h1>
-                            <span class="text-white">5 New</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-
-                <!-- end row -->
-
-
-
-                <div class="row">
-
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">    
-                        <!-- end card-->
-                    </div>
-                    <div class="col-12">
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <h3><i class="fas fa-user-friends"></i> Detalhes dos usuários</h3>
-                                
-                            </div>
-
-                            <div class="card-body">
-
-                                <div class="table-responsive">
-                                    <table id="dataTable" class="table table-bordered table-hover display" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Extn.</th>
-                                                <th>Date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                                <!-- end table-responsive-->
-
-                            </div>
-                            <!-- end card-body-->
-                        </div>
-                        <!-- end card-->
-                    </div>
-
-                </div>
-                <!-- end row-->
-
-            </div>
-            <!-- END container-fluid -->
+    
+    <!-- Custom styles for this template -->
+  </head>
+  <body style="background-color: #2a3542;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="margin-top: 150px">
+        <center>
+          <img id="imagem" src="https://st.depositphotos.com/1179847/4067/i/950/depositphotos_40676241-stock-photo-barbados.jpg">
+        </center>
+        <br><br>
+        <form action="./painel/_insert_menbro.php">
+          <div class="form-group">
+            <label for="exampleInputEmail1" id="cor">E-mail</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1" id="cor" >Senha</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <br>
+          <button type="submit" class="btn btn-block btn-primary">Submit</button>
+        </form>
+        <br>
+        <center>
+          <a href = "signup.php" style="text-decoration: none;">Inscrever-se</a>
+        </center>
 
         </div>
-        <!-- END content -->
-
+        <div class="col-md-4"></div>
+      </div>
     </div>
-    <!-- END content-page -->
 
-<?php include 'footer.php' ?>
+
+    
+  
+
+</body></html>

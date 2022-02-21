@@ -87,7 +87,7 @@
                                 Alterado com sucesso!
                             </div>
                         <?php } else {?>
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-danger" role="alert">
                                     Excluído com sucesso!
                                 </div>
                            <?php }   
@@ -117,7 +117,7 @@
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        include 'conexao.php';
+                                                        include './conexao/conexao.php';
                                                         $sql = "SELECT * FROM users";
                                                         $search = mysqli_query($conexao, $sql);
 
