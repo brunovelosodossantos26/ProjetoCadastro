@@ -25,3 +25,6 @@
     <link rel="stylesheet" type="text/css" href="assets/plugins/datatables/datatables.min.css" />
     <!-- END CSS for this page -->
 </head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
