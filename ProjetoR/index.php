@@ -36,15 +36,27 @@
           <img id="imagem" src="https://st.depositphotos.com/1179847/4067/i/950/depositphotos_40676241-stock-photo-barbados.jpg">
         </center>
         <br><br>
-        <form action="./painel/_insert_menbro.php">
+        <form action="index1.php" method="post">
+          <?php 
+          if(isset($_GET['msg'])) {
+            $msg = $_GET['msg'];
+            if($msg == 1){?>
+               <div class="alert alert-info" role="alert">
+                  Cadastrado com sucesso!
+                </div>
+             <?php  } else{ ?>
+                <div class="alert alert-danger" role="alert">
+                  Senha errada/Este e-mail não está cadastrado
+                </div>
+            <?php } } ?>
           <div class="form-group">
             <label for="exampleInputEmail1" id="cor">E-mail</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" name="mail"  id="exampleInputEmail1" aria-describedby="emailHelp">
             
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1" id="cor" >Senha</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" name="senha" id="exampleInputPassword1">
           </div>
           <br>
           <button type="submit" class="btn btn-block btn-primary">Submit</button>
