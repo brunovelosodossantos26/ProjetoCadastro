@@ -1,3 +1,13 @@
+<?php 
+session_start();
+$mailHeader = $_SESSION['mailx'];
+
+if(!isset($_SESSION['mailx'])){
+    header('Location:  ../index.php');
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
