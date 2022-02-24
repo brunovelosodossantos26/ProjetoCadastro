@@ -26,7 +26,7 @@
                         </div>
 
                         <!-- item-->
-                        <a href="profile.html" class="dropdown-item notify-item">
+                        <a href="profile.php" class="dropdown-item notify-item">
                             <i class="fas fa-user"></i>
                             <span>Profile</span>
                         </a>

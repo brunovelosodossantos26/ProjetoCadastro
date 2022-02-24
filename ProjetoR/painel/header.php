@@ -6,6 +6,13 @@ if(!isset($_SESSION['mailx'])){
     header('Location:  ../index.php');
 }
 
+include 'conexao/conexao.php';
+
+$sql = "select * from menbro where mail = '$mailHeader'";
+$search = mysqli_query($conexao,$sql);
+$array =mysqli_fetch_array($search);
+
+$id = $array['id'];
 
 ?>
 <!DOCTYPE html>
