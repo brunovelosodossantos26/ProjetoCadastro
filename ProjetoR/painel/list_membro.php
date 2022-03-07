@@ -42,6 +42,19 @@
     });
 </script>
 
+<script>
+    $(function(){
+        $('#nivelModal').on('show.bs.modal', function(event){
+            var button = $(event.relatedTarget)
+            var recipient = button.data('id-nivel')
+
+            var modal = $(this)
+            modal.find('.modal-title').text('Nível code: ' +recipient)
+            modal.find('#recipient-id-nivel').val(recipient)
+        })
+    })
+</script>
+
 <body class="adminbody">
 
     <div id="main">
@@ -109,7 +122,6 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Nome</th>
-                                                            <th>CPF</th>
                                                             <th>E-mail</th>
                                                             <th>Fone/Celular</th>
                                                             <?php
@@ -124,23 +136,17 @@
                                                     <tbody>
                                                         <?php
                                                         include './conexao/conexao.php';
-                                                        $sql = "SELECT * FROM users";
+                                                        $sql = "SELECT * FROM menbro";
                                                         $search = mysqli_query($conexao, $sql);
 
                                                         while ($array = mysqli_fetch_array($search)) {
-                                                            $id = $array['id_user'];
-                                                            $name = $array['nome'];
-                                                            $cpf = $array['cpf'];
-                                                            $endereco = $array['endereco'];
-                                                            $cep = $array['cep'];
-                                                            $cidade = $array['cidade'];
-                                                            $estado = $array['estado'];
-                                                            $email = $array['email'];
-                                                            $fone = $array['fone'];
+                                                            $id = $array['id'];
+                                                            $name = $array['name'];
+                                                            $email = $array['mail'];
+                                                            $fone = $array['tel'];
                                                         ?>
                                                             <tr>
                                                                 <td><?php echo $name; ?></td>
-                                                                <td><?php echo $cpf; ?></td>
                                                                 <td><?php echo $email; ?></td>
                                                                 <td><?php echo $fone; ?></td>
 
@@ -149,12 +155,13 @@
 
                                                                 } else { ?>
                                                                     <td>
-                                                                        <button type="button" class="btn btn-warning" title="Editar" data-toggle="modal" data-target="#exampleModal" data-id="<?php echo $id ?>  " data-name="<?php echo $name ?>  " data-cpf="<?php echo $cpf ?>" data-email="<?php echo $email ?>  " data-fone="<?php echo $fone ?>  " data-endereco="<?php echo $endereco ?>  " data-cep="<?php echo $cep ?>  " data-cidade="<?php echo $cidade ?>" data-estado="<?php echo $estado ?>"><i class="fas fa-user-edit"></i></button>
+                                                                        <button type="button" class="btn btn-warning" title="Editar" data-toggle="modal" data-target="#exampleModal" data-id="<?php echo $id ?>  " data-name="<?php echo $name ?>  " data-email="<?php echo $email ?>  " data-fone="<?php echo $fone ?>  "><i class="fas fa-user-edit"></i></button>
 
                                                                         <?php 
                                                                         if($nivelMembro == 1){?>
                                                                         <button type="button" class="btn btn-danger" title="Apagar" data-toggle="modal" data-target="#deleteModal" data-id-delete="<?php echo $id ?>  " data-name-delete="<?php echo $name ?>  "><i class="fas fa-user-minus"></i></button>
-                                                                            <?php } ?>
+                                                                        <button type="button" class="btn btn-primary" title="Editar nível" data-toggle="modal" data-target="#nivelModal" data-id-nivel="<?php echo $id ?>"><i class ="fas fa-user-plus" ></i></button>
+                                                                        <?php } ?>
                                                                     </td>
                                                                 <?php    }
                                                                 ?>
