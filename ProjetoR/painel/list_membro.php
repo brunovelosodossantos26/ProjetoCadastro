@@ -65,7 +65,7 @@
                                 <h1 class="main-title float-left">Painel</h1>
                                 <ol class="breadcrumb float-right">
                                     <li class="breadcrumb-item">Home</li>
-                                    <li class="breadcrumb-item active">Listar usuário</li>
+                                    <li class="breadcrumb-item active">Listar membro</li>
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -95,7 +95,7 @@
 
                         <div class="card mb-3">
                             <div class="card-header">
-                                <h3>Lista de usuários</h3>
+                                <h3>Lista de membros</h3>
 
                             </div>
 

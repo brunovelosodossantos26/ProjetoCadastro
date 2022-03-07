@@ -13,6 +13,10 @@ $search = mysqli_query($conexao,$sql);
 $array =mysqli_fetch_array($search);
 
 $id = $array['id'];
+$name = $array['name'];
+$tel = $array['tel'];
+$cpf = $array['cpf'];
+$nivelMembro = $array['id_menber_nivel'];
 
 ?>
 <!DOCTYPE html>

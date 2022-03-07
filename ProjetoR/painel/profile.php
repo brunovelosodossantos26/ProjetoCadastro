@@ -47,7 +47,16 @@
                                 <div class="card-body">
 
 
-                                    <form action="#" method="post" enctype="multipart/form-data">
+
+
+                                    <form action="edit_menber.php" method="post" enctype="multipart/form-data">
+
+                                        <?php
+                                        if (isset($_GET['msg'])) { ?>
+                                            <div class="alert alert-success" role="alert">
+                                                Inserido com sucesso
+                                            </div>
+                                        <?php } ?>
 
                                         <div class="row">
                                             <div class="col-lg-6">
@@ -60,8 +69,8 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Nome</label>
-                                                    <input class="form-control" name="name" type="text" required />
-                                                    <input class="form-control" name="name" value="<?php echo $id ?>" type="number" style='display:none' />
+                                                    <input class="form-control" name="name" value="<?php echo $name ?>" type="text" required />
+                                                    <input class="form-control" name="id" value="<?php echo $id ?>" type="number" style='display:none' />
                                                 </div>
                                             </div>
                                         </div>
@@ -70,22 +79,22 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>Telefone</label>
-                                                    <input class="form-control" name="tel" type="text" id="telefone" required />
+                                                    <input class="form-control" name="tel" value="<?php echo $tel ?> " type="text" id="telefone" required />
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label>CPF</label>
-                                                    <input class="form-control" name="cpf" type="text" id="cpf" required />
+                                                    <input class="form-control" name="cpf" value="<?php echo $cpf ?> " type="text" id="cpf" required />
                                                 </div>
                                             </div>
-                                        </div>                                   
+                                        </div>
 
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <hr>
-                                                <button type="button" class="btn btn-primary btn-block">Edit perfil</button>
+                                                <button type="submit" class="btn btn-primary btn-block">Edit perfil</button>
                                             </div>
                                         </div>
 
@@ -140,50 +149,50 @@
 
 
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
-                            <div class="card mb-3">
-                                <div class="card-header">
-                                    <h3><i class="far fa-user"></i> Redefinir senha</h3>
-                                </div>
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h3><i class="far fa-user"></i> Redefinir senha</h3>
+                            </div>
 
-                                <div class="card-body">
+                            <div class="card-body">
 
 
-                                    <form action="#" method="post" enctype="multipart/form-data">
+                                <form action="edit_senha.php" method="post" enctype="multipart/form-data">
 
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Nova senha</label>
-                                                    <input class="form-control" name="password" type="password"/>
-                                                    <input class="form-control" name="name" value="<?php echo $id ?>" type="number" style='display:none' />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label>Repetir senha</label>
-                                                    <input class="form-control" name="password2" type="password"/>
-                                                </div>
-                                            </div>
-                                        </div>                                     
-
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <hr>
-                                                <button type="button" class="btn btn-danger btn-block">Editar senha</button>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>Nova senha</label>
+                                                <input class="form-control" name="senha" type="password" id = "password" />
+                                                <input class="form-control" name="id" value="<?php echo $id ?>" type="number" style='display:none' />
                                             </div>
                                         </div>
 
-                                    </form>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>Repetir senha</label>
+                                                <input class="form-control" name="senha2" type="password" id="confirm_password" />
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                </div>
-                                <!-- end card-body -->
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <hr>
+                                            <button type="submit" class="btn btn-danger btn-block">Editar senha</button>
+                                        </div>
+                                    </div>
+
+                                </form>
 
                             </div>
-                            <!-- end card -->
+                            <!-- end card-body -->
 
                         </div>
-                        <!-- end col -->
+                        <!-- end card -->
+
+                    </div>
+                    <!-- end col -->
 
 
 
@@ -206,3 +215,19 @@
         <!-- END content-page -->
 
         <?php include 'footer.php' ?>
+
+        <script type="text/javascript">
+            var password = document.getElementById("password"),
+                confirm_password = document.getElementById("confirm_password");
+
+            function validatePassword() {
+                if (password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Senhas diferentes!");
+                } else {
+                    confirm_password.setCustomValidity('');
+                }
+            }
+
+            password.onchange = validatePassword;
+            confirm_password.onkeyup = validatePassword;
+        </script>
