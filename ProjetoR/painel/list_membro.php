@@ -43,13 +43,13 @@
 </script>
 
 <script>
-    $(function(){
-        $('#nivelModal').on('show.bs.modal', function(event){
+    $(function() {
+        $('#nivelModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var recipient = button.data('id-nivel')
 
             var modal = $(this)
-            modal.find('.modal-title').text('Nível code: ' +recipient)
+            modal.find('.modal-title').text('Nível code: ' + recipient)
             modal.find('#recipient-id-nivel').val(recipient)
         })
     })
@@ -135,7 +135,7 @@
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        include './conexao/conexao.php';
+                                                        include 'conexao/conexao.php';
                                                         $sql = "SELECT * FROM menbro";
                                                         $search = mysqli_query($conexao, $sql);
 
@@ -152,15 +152,14 @@
 
                                                                 <?php
                                                                 if ($nivelMembro == 3) {
-
                                                                 } else { ?>
                                                                     <td>
                                                                         <button type="button" class="btn btn-warning" title="Editar" data-toggle="modal" data-target="#exampleModal" data-id="<?php echo $id ?>  " data-name="<?php echo $name ?>  " data-email="<?php echo $email ?>  " data-fone="<?php echo $fone ?>  "><i class="fas fa-user-edit"></i></button>
 
-                                                                        <?php 
-                                                                        if($nivelMembro == 1){?>
-                                                                        <button type="button" class="btn btn-danger" title="Apagar" data-toggle="modal" data-target="#deleteModal" data-id-delete="<?php echo $id ?>  " data-name-delete="<?php echo $name ?>  "><i class="fas fa-user-minus"></i></button>
-                                                                        <button type="button" class="btn btn-primary" title="Editar nível" data-toggle="modal" data-target="#nivelModal" data-id-nivel="<?php echo $id ?>"><i class ="fas fa-user-plus" ></i></button>
+                                                                        <?php
+                                                                        if ($nivelMembro == 1) { ?>
+                                                                            <button type="button" class="btn btn-danger" title="Apagar" data-toggle="modal" data-target="#deleteModal" data-id-delete="<?php echo $id ?>  " data-name-delete="<?php echo $name ?>  "><i class="fas fa-user-minus"></i></button>
+                                                                            <button type="button" class="btn btn-primary" title="Editar nível" data-toggle="modal" data-target="#nivelModal" data-id-nivel="<?php echo $id ?>"><i class="fas fa-user-plus"></i></button>
                                                                         <?php } ?>
                                                                     </td>
                                                                 <?php    }
@@ -255,6 +254,66 @@
                                                                                 <div class="form-group">
                                                                                     <label for="message-text" class="col-form-label">Nome</label>
                                                                                     <input type="text" class="form-control" id="recipient-name-delete" readonly name="name">
+                                                                                </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                            <button type="submit" class="btn btn-danger">Apagar</button>
+                                                                        </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!--Modal Nivel -->
+                                                            <div class="modal fade" id="nivelModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form action="edit_nivel.php" method="post">
+                                                                                <div class="form-group">
+                                                                                    <label for="message-text" class="col-form-label">Code</label>
+                                                                                    <input type="text" class="form-control" id="recipient-id-nivel" readonly name="id">
+                                                                                </div>
+
+                                                                                <div class="form-group">
+                                                                                    <label for="exampleFormControlSelect1">Nível</label>
+
+
+
+                                                                                    <select class="form-control" id="exampleFormControlSelect1" name="nivel">
+                                                                                        <?php 
+                                                                                            $sql = "SELECT * FROM nivel";
+                                                                                            $search = mysqli_query($conexao, $sql);
+                                                                                        ?>
+                                                  
+                                                                                    </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                                                                 </div>
                                                                         </div>
                                                                         <div class="modal-footer">
